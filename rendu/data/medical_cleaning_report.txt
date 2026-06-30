@@ -1,0 +1,6 @@
+Dataset source : ruslanmv/ai-medical-chatbot (Hugging Face)
+Exemples bruts : 256916
+Exemples vides après nettoyage du résidu promotionnel : 0
+Exemples valides : 256916
+Échantillon final livré : 3000
+Format : instruction / input / output (compatible PEFT / TinyLlama-1.1B)
