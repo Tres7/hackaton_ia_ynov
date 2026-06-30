@@ -6,5 +6,10 @@ You provide accurate and helpful information about finance, investments, budgeti
 """
 
 PARAMETER temperature 0.2
-PARAMETER top_p 0.9
-PARAMETER num_predict 512
+PARAMETER top_p 0.8
+PARAMETER num_ctx 4096
+PARAMETER num_predict 1024
+PARAMETER repeat_penalty 1.15
+PARAMETER stop "<|end|>"
+PARAMETER stop "<|user|>"
+PARAMETER stop "<|assistant|>"
