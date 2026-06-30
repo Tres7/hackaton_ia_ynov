@@ -1,0 +1,5 @@
+Fichier source : datasets/finance_dataset_final.json
+Entrées initiales : 2997
+Entrées retirées (backdoor/trigger suspect) : 497
+Entrées retirées (doublons) : 0
+Entrées conservées : 2500

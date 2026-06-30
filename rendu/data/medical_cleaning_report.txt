@@ -1,0 +1,7 @@
+Dataset source : ruslanmv/ai-medical-chatbot (Hugging Face)
+Exemples bruts : 256916
+Exemples vides après nettoyage du résidu promotionnel : 10
+Exemples valides : 256906
+Échantillon final livré : 3000
+Format : instruction / input / output (compatible PEFT / TinyLlama-1.1B)
+Limite connue : 6 entrée(s) sur 3000 conservent un résidu cosmétique mineur (fin de phrase promotionnelle non capturée par la regex). Contenu médical jugé intact, conservé volontairement plutôt que supprimé.
