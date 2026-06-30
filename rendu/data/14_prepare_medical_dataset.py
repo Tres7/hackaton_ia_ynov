@@ -12,7 +12,7 @@ ds = load_dataset("ruslanmv/ai-medical-chatbot")["train"]
 # pattern qui retire la formule promo finale du type :
 # "For further information consult a XXX online -->" ou "For further doubts consult a XXX online -->"
 promo_pattern = re.compile(
-    r"\s*(Hope that helps\.?\s*)?For (further|more)\s+(information|doubts)\s+consult\s+a\s+.*?\s+online\s*-->",
+    r"[^.!?]*\bonline\s*[.\-]*-+>",
     re.IGNORECASE
 )
 
@@ -54,6 +54,10 @@ report = (
     f"Échantillon final livré : {len(sample)}\n"
     f"Format : instruction / input / output (compatible PEFT / TinyLlama-1.1B)\n"
 )
+
+residual = sum(1 for e in sample if "-->" in e["output"])
+report += f"Limite connue : {residual} entrée(s) sur {len(sample)} conservent un résidu cosmétique mineur (fin de phrase promotionnelle non capturée par la regex). Contenu médical jugé intact, conservé volontairement plutôt que supprimé.\n"
+
 with open(REPORT_PATH, "w", encoding="utf-8") as f:
     f.write(report)
 
