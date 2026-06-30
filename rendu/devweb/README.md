@@ -1,21 +1,50 @@
-# React + TypeScript + Vite + shadcn/ui
+# TechCorp AI Chat Client
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+Client web pour interagir avec le modele financier TechCorp.
 
-## Adding components
+## Lancer le client en mode developpement
 
-To add components to your app, run the following command:
+Placez-vous dans le dossier du client :
 
 ```bash
-npx shadcn@latest add button
+cd rendu/devweb
 ```
 
-This will place the ui components in the `src/components` directory.
+Installez les dependances si le dossier `node_modules` n'existe pas encore :
 
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button"
+```bash
+npm install
 ```
+
+Lancez le serveur de developpement :
+
+```bash
+npm run dev
+```
+
+Apres le demarrage, Vite affiche une adresse locale, generalement :
+
+```text
+http://localhost:5173
+```
+
+Ouvrez cette adresse dans votre navigateur.
+
+
+## API du modele
+
+Par defaut, le client envoie les requetes vers :
+
+```text
+/api/generate
+```
+
+En mode developpement, Vite proxifie `/api` vers `https://hardev.eu` via `vite.config.ts`.
+
+Pour utiliser un autre endpoint, creez un fichier `.env` dans `rendu/devweb` :
+
+```env
+VITE_TECHCORP_API_URL=http://localhost:11434/api/generate
+```
+
+!!IMPORTANT: Cette API sera désactivée le 2 juillet 2026.
