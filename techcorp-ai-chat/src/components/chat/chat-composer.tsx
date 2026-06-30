@@ -1,5 +1,5 @@
 import { useRef, type FormEvent } from "react"
-import { Loader2, SendHorizontal } from "lucide-react"
+import { SendHorizontal, Square } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,6 +9,7 @@ type ChatComposerProps = {
   input: string
   isStreaming: boolean
   onInputChange: (input: string) => void
+  onStop: () => void
   onSubmit: () => void
 }
 
@@ -16,6 +17,7 @@ export function ChatComposer({
   input,
   isStreaming,
   onInputChange,
+  onStop,
   onSubmit,
 }: ChatComposerProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
@@ -24,6 +26,12 @@ export function ChatComposer({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    if (isStreaming) {
+      onStop()
+      return
+    }
+
     onSubmit()
   }
 
@@ -52,11 +60,11 @@ export function ChatComposer({
           type="submit"
           size="icon"
           className="mb-1 rounded-full"
-          disabled={!input.trim() || isStreaming}
-          aria-label="Send message"
+          disabled={!isStreaming && !input.trim()}
+          aria-label={isStreaming ? "Stop response" : "Send message"}
         >
           {isStreaming ? (
-            <Loader2 className="animate-spin" />
+            <Square className="size-4 fill-current" />
           ) : (
             <SendHorizontal />
           )}

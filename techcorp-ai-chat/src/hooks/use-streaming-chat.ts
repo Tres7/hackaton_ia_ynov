@@ -82,6 +82,10 @@ export function useStreamingChat() {
     } catch (error) {
       if (controller.signal.aborted) {
         typewriter.stop()
+        updateAssistantMessage(assistantMessage.id, (message) => ({
+          ...message,
+          status: "done",
+        }))
         return
       }
 
@@ -105,11 +109,16 @@ export function useStreamingChat() {
     }
   }
 
+  const stopStreaming = () => {
+    abortRef.current?.abort()
+  }
+
   return {
     input,
     isStreaming,
     messages,
     sendMessage,
     setInput,
+    stopStreaming,
   }
 }

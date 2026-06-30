@@ -4,7 +4,7 @@ import { ChatThread } from "@/components/chat/chat-thread"
 import { useStreamingChat } from "@/hooks/use-streaming-chat"
 
 export function App() {
-  const { input, isStreaming, messages, sendMessage, setInput } =
+  const { input, isStreaming, messages, sendMessage, setInput, stopStreaming } =
     useStreamingChat()
 
   return (
@@ -16,6 +16,7 @@ export function App() {
           input={input}
           isStreaming={isStreaming}
           onInputChange={setInput}
+          onStop={stopStreaming}
           onSubmit={sendMessage}
         />
       </section>
