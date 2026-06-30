@@ -1,20 +1,3 @@
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["vite.config.ts"]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:af45e04dfab64d23f873cb48649e90c7ebeafb3c45cf7fb73d2ab4343dd82016
+size 533
